@@ -6,17 +6,17 @@ using GivenWhenThen.TestSteps;
 
 namespace GivenWhenThen
 {
-    public sealed class Scenario : IGiven, IWhen, IThen
+    public sealed class Scenario : IGiven, IWhen, IThen, IExecutable
     {
         private const string GivenPrefix = "Given: ";
         private const string WhenPrefix = " When: ";
         private const string ThenPrefix = " Then: ";
         private const string AndPrefix = "  And:";
-        private List<ITestStep> TestSteps { get; }
+        private List<IExecutable> TestSteps { get; }
 
         private Scenario()
         {
-            TestSteps = new List<ITestStep>();
+            TestSteps = new List<IExecutable>();
         }
 
         public static IGiven Given(Action action)
@@ -35,7 +35,7 @@ namespace GivenWhenThen
             return scenario;
         }
 
-        public static IGiven Given(ITestStep testStep)
+        public static IGiven Given(IExecutable testStep)
         {
             var scenario = new Scenario();
             scenario.TestSteps.Add(testStep);
@@ -46,31 +46,31 @@ namespace GivenWhenThen
 
         IGiven IGiven.And(string description, Action action) => AddTestStep(AndPrefix, action, description);
 
-        IGiven IGiven.And(ITestStep testStep) => AddTestStep(testStep);
+        IGiven IGiven.And(IExecutable testStep) => AddTestStep(testStep);
 
         IWhen IGiven.When(Action action) => AddTestStep(WhenPrefix, action);
 
         IWhen IGiven.When(string description, Action action) => AddTestStep(WhenPrefix, action, description);
 
-        IWhen IGiven.When(ITestStep testStep) => AddTestStep(testStep);
+        IWhen IGiven.When(IExecutable testStep) => AddTestStep(testStep);
 
         IWhen IWhen.And(Action action) => AddTestStep(AndPrefix, action);
 
         IWhen IWhen.And(string description, Action action) => AddTestStep(AndPrefix, action, description);
 
-        IWhen IWhen.And(ITestStep testStep) => AddTestStep(testStep);
+        IWhen IWhen.And(IExecutable testStep) => AddTestStep(testStep);
 
         IThen IWhen.Then(Action action) => AddTestStep(ThenPrefix, action);
 
         IThen IWhen.Then(string description, Action action) => AddTestStep(ThenPrefix, action, description);
 
-        IThen IWhen.Then(ITestStep testStep) => AddTestStep(testStep);
+        IThen IWhen.Then(IExecutable testStep) => AddTestStep(testStep);
 
         IThen IThen.And(Action action) => AddTestStep(AndPrefix, action);
 
         IThen IThen.And(string description, Action action) => AddTestStep(AndPrefix, action, description);
 
-        IThen IThen.And(ITestStep testStep) => AddTestStep(testStep);
+        IThen IThen.And(IExecutable testStep) => AddTestStep(testStep);
 
         private Scenario AddTestStep(string prefix, Action action)
         {
@@ -86,15 +86,15 @@ namespace GivenWhenThen
             return this;
         }
 
-        private Scenario AddTestStep(ITestStep testStep)
+        private Scenario AddTestStep(IExecutable testStep)
         {
             TestSteps.Add(testStep);
             return this;
         }
 
-        private static ITestStep CreateTestStep(string prefix, Action action)
+        private static IExecutable CreateTestStep(string prefix, Action action)
         {
-            ITestStep result;
+            IExecutable result;
             if (action.HasTestStepAttribute())
             {
                 result = new AttributedActionTestStep(prefix, action);
@@ -110,7 +110,7 @@ namespace GivenWhenThen
             return result;
         }
 
-        private static ITestStep CreateTestStep(string prefix, Action action, string description)
+        private static IExecutable CreateTestStep(string prefix, Action action, string description)
         {
             return new DescribedActionTestStep(prefix, description, action);
         }

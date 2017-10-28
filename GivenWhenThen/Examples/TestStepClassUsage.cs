@@ -1,4 +1,3 @@
-using GivenWhenThen.TestSteps;
 using NUnit.Framework;
 
 namespace GivenWhenThen.Examples
@@ -58,7 +57,7 @@ namespace GivenWhenThen.Examples
         }
     }
 
-    internal class XYTestStep : ITestStep
+    internal class XYTestStep : IExecutable
     {
         public XYTestStep(int x, int y)
         {
@@ -74,7 +73,7 @@ namespace GivenWhenThen.Examples
         }
     }
 
-    internal class SumTestStep : ITestStep
+    internal class SumTestStep : IExecutable
     {
         private readonly XYTestStep xyTestStep;
 
@@ -91,7 +90,7 @@ namespace GivenWhenThen.Examples
         }
     }
 
-    internal class SumResultVerification : ITestStep
+    internal class SumResultVerification : IExecutable
     {
         private readonly SumTestStep sumTestStep;
         private readonly int expectedValue;

@@ -3,7 +3,7 @@ using NUnit.Framework;
 
 namespace GivenWhenThen.TestSteps
 {
-    internal class ActionTestStep : ITestStep
+    internal class ActionTestStep : IExecutable
     {
         public Action Action { get; }
 
