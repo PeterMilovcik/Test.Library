@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using GivenWhenThen.Fluent;
+using GivenWhenThen.Scenarios;
 
 namespace GivenWhenThen
 {
@@ -24,104 +24,50 @@ namespace GivenWhenThen
         public void Execute()
         {
             Console.WriteLine(Description);
-            foreach (var e in executables)
-                e.Execute();
+            foreach (var executable in executables)
+            {
+                DisplayDescription(executable);
+                executable.Execute();
+            }
         }
 
-        public IGiven Given(Action action)
-        {
-            return Add(TestStep.Create(action));
-        }
+        public IScenario Given(Action action) => Add(TestStep.Create(action));
 
-        public IGiven Given(string description, Action action)
-        {
-            return Add(TestStep.Create(description, action));
-        }
+        public IScenario Given(string description, Action action) => Add(TestStep.Create(description, action));
 
-        public IGiven Given(IExecutable executable)
-        {
-            return Add(executable);
-        }
+        public IScenario Given(IExecutable executable) => Add(executable);
 
-        IGiven IGiven.And(Action action)
-        {
-            return Add(TestStep.Create(action));
-        }
+        public IScenario When(Action action) => Add(TestStep.Create(action));
 
-        IGiven IGiven.And(string description, Action action)
-        {
-            return Add(TestStep.Create(description, action));
-        }
+        public IScenario When(string description, Action action) => Add(TestStep.Create(description, action));
 
-        IGiven IGiven.And(IExecutable executable)
-        {
-            return Add(executable);
-        }
+        public IScenario When(IExecutable executable) => Add(executable);
 
-        IWhen IGiven.When(Action action)
-        {
-            return Add(TestStep.Create(action));
-        }
+        public IScenario Then(Action action) => Add(TestStep.Create(action));
 
-        IWhen IGiven.When(string description, Action action)
-        {
-            return Add(TestStep.Create(description, action));
-        }
+        public IScenario Then(string description, Action action) => Add(TestStep.Create(description, action));
 
-        IWhen IGiven.When(IExecutable executable)
-        {
-            return Add(executable);
-        }
+        public IScenario Then(IExecutable executable) => Add(executable);
 
-        IWhen IWhen.And(Action action)
-        {
-            return Add(TestStep.Create(action));
-        }
+        public IScenario And(Action action) => Add(TestStep.Create(action));
 
-        IWhen IWhen.And(string description, Action action)
-        {
-            return Add(TestStep.Create(description, action));
-        }
+        public IScenario And(string description, Action action) => Add(TestStep.Create(description, action));
 
-        IWhen IWhen.And(IExecutable executable)
-        {
-            return Add(executable);
-        }
-
-        IThen IWhen.Then(Action action)
-        {
-            return Add(TestStep.Create(action));
-        }
-
-        IThen IWhen.Then(string description, Action action)
-        {
-            return Add(TestStep.Create(description, action));
-        }
-
-        IThen IWhen.Then(IExecutable executable)
-        {
-            return Add(executable);
-        }
-
-        IThen IThen.And(Action action)
-        {
-            return Add(TestStep.Create(action));
-        }
-
-        IThen IThen.And(string description, Action action)
-        {
-            return Add(TestStep.Create(description, action));
-        }
-
-        IThen IThen.And(IExecutable executable)
-        {
-            return Add(executable);
-        }
+        public IScenario And(IExecutable executable) => Add(executable);
 
         private Scenario Add(IExecutable executable)
         {
             executables.Add(executable);
             return this;
+        }
+        
+        private static void DisplayDescription(IExecutable executable)
+        {
+            var descriptive = executable as IDescriptive;
+            if (descriptive != null)
+            {
+                Console.WriteLine(descriptive.Description);
+            }
         }
     }
 }

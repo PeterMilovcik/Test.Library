@@ -1,38 +1,17 @@
-using System.Collections;
-using System.Collections.Generic;
+using GivenWhenThen.TestCases;
 
 namespace GivenWhenThen
 {
-    public class TestCase : ITestCase
+    public static class TestCase
     {
-        private readonly List<IExecutable> testSteps;
-
-        public TestCase()
-            : this(string.Empty)
+        public static ITestCase Create()
         {
+            return new CommonTestCase();
         }
 
-        public TestCase(string description)
+        public static ITestCase Create(string description)
         {
-            Description = description;
-            testSteps = new List<IExecutable>();
-        }
-
-        public string Description { get; }
-
-        public void Execute()
-        {
-            testSteps.ForEach(testStep => testStep.Execute());
-        }
-
-        public IEnumerator<IExecutable> GetEnumerator()
-        {
-            return testSteps.GetEnumerator();
-        }
-
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            return ((IEnumerable) testSteps).GetEnumerator();
+            return new DescribedTestCase(description);
         }
     }
 }
