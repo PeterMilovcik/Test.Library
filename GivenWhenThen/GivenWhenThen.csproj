@@ -44,6 +44,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Examples\DelegateOnlyUsage.cs" />
+    <Compile Include="Examples\DescribedDelegateUsage.cs" />
+    <Compile Include="Examples\MethodUsage.cs" />
     <Compile Include="Extensions\ActionExtensions.cs" />
     <Compile Include="Fluent\IGiven.cs" />
     <Compile Include="Fluent\IThen.cs" />

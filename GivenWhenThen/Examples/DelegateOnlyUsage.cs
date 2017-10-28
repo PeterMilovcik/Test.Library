@@ -2,8 +2,11 @@
 
 namespace GivenWhenThen.Examples
 {
-    public class DelegateOnlyUsage
+    internal class DelegateOnlyUsage
     {
+        /// <summary>
+        /// Console Output: n.a.
+        /// </summary>
         [Test]
         public void Sum()
         {
@@ -14,7 +17,7 @@ namespace GivenWhenThen.Examples
             Scenario
                 .Given(() => { x = 2; y = 3; })
                 .When(() => sum = x + y)
-                .Then(() => Assert.That(sum == 5))
+                .Then(() => Assert.That(sum, Is.EqualTo(5)))
                 .Execute();
         }
     }

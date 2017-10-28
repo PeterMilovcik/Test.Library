@@ -19,7 +19,7 @@ namespace GivenWhenThen.TestSteps
         {
             try
             {
-                Console.Write(Description);
+                Console.Write($"{Prefix}{Description}");
                 Action.Invoke();
                 Console.WriteLine(" -> Passed");
             }
