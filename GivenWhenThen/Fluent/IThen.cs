@@ -1,4 +1,5 @@
 ﻿using System;
+using GivenWhenThen.TestSteps;
 
 namespace GivenWhenThen.Fluent
 {
@@ -6,6 +7,7 @@ namespace GivenWhenThen.Fluent
     {
         IThen And(Action action);
         IThen And(string description, Action action);
+        IThen And(ITestStep testStep);
         void Execute();
     }
 }
