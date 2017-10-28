@@ -35,16 +35,42 @@ namespace GivenWhenThen
             return scenario;
         }
 
+        public static IGiven Given(ITestStep testStep)
+        {
+            var scenario = new Scenario();
+            scenario.TestSteps.Add(testStep);
+            return scenario;
+        }
+
         IGiven IGiven.And(Action action) => AddTestStep(AndPrefix, action);
+
         IGiven IGiven.And(string description, Action action) => AddTestStep(AndPrefix, action, description);
+
+        IGiven IGiven.And(ITestStep testStep) => AddTestStep(testStep);
+
         IWhen IGiven.When(Action action) => AddTestStep(WhenPrefix, action);
+
         IWhen IGiven.When(string description, Action action) => AddTestStep(WhenPrefix, action, description);
+
+        IWhen IGiven.When(ITestStep testStep) => AddTestStep(testStep);
+
         IWhen IWhen.And(Action action) => AddTestStep(AndPrefix, action);
+
         IWhen IWhen.And(string description, Action action) => AddTestStep(AndPrefix, action, description);
+
+        IWhen IWhen.And(ITestStep testStep) => AddTestStep(testStep);
+
         IThen IWhen.Then(Action action) => AddTestStep(ThenPrefix, action);
+
         IThen IWhen.Then(string description, Action action) => AddTestStep(ThenPrefix, action, description);
+
+        IThen IWhen.Then(ITestStep testStep) => AddTestStep(testStep);
+
         IThen IThen.And(Action action) => AddTestStep(AndPrefix, action);
+
         IThen IThen.And(string description, Action action) => AddTestStep(AndPrefix, action, description);
+
+        IThen IThen.And(ITestStep testStep) => AddTestStep(testStep);
 
         private Scenario AddTestStep(string prefix, Action action)
         {
@@ -56,6 +82,12 @@ namespace GivenWhenThen
         private Scenario AddTestStep(string prefix, Action action, string description)
         {
             var testStep = CreateTestStep(prefix, action, description);
+            TestSteps.Add(testStep);
+            return this;
+        }
+
+        private Scenario AddTestStep(ITestStep testStep)
+        {
             TestSteps.Add(testStep);
             return this;
         }
