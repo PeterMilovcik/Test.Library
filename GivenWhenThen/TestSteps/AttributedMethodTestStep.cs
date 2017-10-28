@@ -3,10 +3,10 @@ using System.Reflection;
 
 namespace GivenWhenThen.TestSteps
 {
-    internal class AttributedActionTestStep : DescribedActionTestStep
+    internal class AttributedMethodTestStep : DescribedActionTestStep
     {
-        public AttributedActionTestStep(string prefix, Action action)
-            :base(prefix, GetTestStepAttribute(action).Description, action)
+        public AttributedMethodTestStep(Action action)
+            :base(GetTestStepAttribute(action).Description, action)
         {
         }
 
@@ -18,6 +18,11 @@ namespace GivenWhenThen.TestSteps
                     $"Please, add action with {typeof(TestStepAttribute).FullName} " +
                     "for AttributeTestStep constructor.");
             return testStepAttribute;
+        }
+
+        public static bool CanUse(Action action)
+        {
+            return action.Method.GetCustomAttribute(typeof(TestStepAttribute)) as TestStepAttribute != null;
         }
     }
 }

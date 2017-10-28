@@ -7,7 +7,7 @@ namespace GivenWhenThen.Fluent
     {
         IThen And(Action action);
         IThen And(string description, Action action);
-        IThen And(IExecutable testStep);
+        IThen And(IExecutable executable);
         void Execute();
     }
 }

@@ -5,21 +5,19 @@ namespace GivenWhenThen.TestSteps
 {
     internal class DescribedActionTestStep : ActionTestStep
     {
-        public DescribedActionTestStep(string prefix, string description, Action action)
+        public DescribedActionTestStep(string description, Action action)
             :base(action)
         {
-            Prefix = prefix ?? throw new ArgumentNullException(nameof(prefix));
             Description = description ?? throw new ArgumentNullException(nameof(description));
         }
-
-        public string Prefix { get; }
+        
         public string Description { get; }
 
         public override void Execute()
         {
             try
             {
-                Console.Write($"{Prefix}{Description}");
+                Console.Write($"{Description}");
                 Action.Invoke();
                 Console.WriteLine(" -> Passed");
             }

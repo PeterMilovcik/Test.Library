@@ -17,7 +17,7 @@ namespace GivenWhenThen.Examples
             int y = 0;
             int sum = 0;
 
-            Scenario
+            new Scenario()
                 .Given("Two numbers x=2 and y=3.", () =>
                 {
                     x = 2;

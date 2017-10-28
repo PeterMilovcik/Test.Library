@@ -48,17 +48,25 @@
     <Compile Include="Examples\DescribedDelegateUsage.cs" />
     <Compile Include="Examples\MethodUsage.cs" />
     <Compile Include="Examples\TestStepClassUsage.cs" />
-    <Compile Include="Extensions\ActionExtensions.cs" />
+    <Compile Include="IScenario.cs" />
+    <Compile Include="TestSteps\ExecutableTestStep.cs" />
+    <Compile Include="Extensions\ObjectExtensions.cs" />
     <Compile Include="Fluent\IGiven.cs" />
     <Compile Include="Fluent\IThen.cs" />
     <Compile Include="Fluent\IWhen.cs" />
+    <Compile Include="IDescriptive.cs" />
     <Compile Include="IExecutable.cs" />
+    <Compile Include="ITestCase.cs" />
+    <Compile Include="ITestStep.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Scenario.cs" />
-    <Compile Include="TestSteps\AttributedActionTestStep.cs" />
+    <Compile Include="TestCase.cs" />
+    <Compile Include="TestStep.cs" />
+    <Compile Include="TestSteps\AttributedMethodTestStep.cs" />
     <Compile Include="TestSteps\DescribedActionTestStep.cs" />
     <Compile Include="TestSteps\ActionTestStep.cs" />
     <Compile Include="TestStepAttribute.cs" />
+    <Compile Include="TestSteps\MethodTestStep.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

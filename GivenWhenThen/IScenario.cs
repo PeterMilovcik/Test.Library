@@ -1,10 +1,8 @@
-﻿using System.Collections.Generic;
-using GivenWhenThen.TestSteps;
+﻿using GivenWhenThen.Fluent;
 
 namespace GivenWhenThen
 {
-    public interface IScenario : IEnumerable<ITestStep>
+    public interface IScenario : IDescriptive, IGiven, IWhen, IThen, IExecutable
     {
-        void Execute();
     }
 }

@@ -17,7 +17,7 @@ namespace GivenWhenThen.Examples
         [Test]
         public void Sum()
         {
-            Scenario
+            new Scenario()
                 .Given(TwoNumbers2And3AreDeclared)
                 .When(SumOperationIsPerformed)
                 .Then(ResultIsEqualTo5)

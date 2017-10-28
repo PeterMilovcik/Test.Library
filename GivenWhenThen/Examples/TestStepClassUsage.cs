@@ -14,7 +14,7 @@ namespace GivenWhenThen.Examples
             var sumOperation = new SumTestStep(xyNumbers);
             var sumResult = new SumResultVerification(sumOperation, 5);
 
-            Scenario
+            new Scenario()
                 .Given(xyNumbers)
                 .When(sumOperation)
                 .Then(sumResult)
@@ -31,7 +31,7 @@ namespace GivenWhenThen.Examples
             var sumOperation = TestSteps.Sum(xyNumbers);
             var sumResult = TestSteps.SumResult(sumOperation, 5);
 
-            Scenario
+            new Scenario()
                 .Given(xyNumbers)
                 .When(sumOperation)
                 .Then(sumResult)
