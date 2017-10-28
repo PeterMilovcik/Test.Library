@@ -24,10 +24,11 @@ namespace GivenWhenThen.Stories
             return scenarios.GetEnumerator();
         }
 
-        public void Add(IScenario scenario)
+        public IStory Add(IScenario scenario)
         {
             if (scenario == null) throw new ArgumentNullException(nameof(scenario));
             scenarios.Add(scenario);
+            return this;
         }
 
         IEnumerator IEnumerable.GetEnumerator()
