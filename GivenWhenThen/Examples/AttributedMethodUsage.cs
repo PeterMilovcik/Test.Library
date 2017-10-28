@@ -4,15 +4,15 @@ namespace GivenWhenThen.Examples
 {
     internal class AttributedMethodUsage
     {
+        private int sum;
         private int x;
         private int y;
-        private int sum;
 
         /// <summary>
-        /// Console Output:
-        /// Given: Two numbers 2 and 3 are declared. -> Passed
-        ///  When: Sum operation is performed. -> Passed
-        ///  Then: Result is equal to 5. -> Passed
+        ///     Console Output:
+        ///     Given: Two numbers 2 and 3 are declared. -> Passed
+        ///     When: Sum operation is performed. -> Passed
+        ///     Then: Result is equal to 5. -> Passed
         /// </summary>
         [Test]
         public void Sum()

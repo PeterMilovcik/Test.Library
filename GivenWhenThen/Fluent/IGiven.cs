@@ -1,11 +1,9 @@
 ﻿using System;
-using GivenWhenThen.TestSteps;
 
 namespace GivenWhenThen.Fluent
 {
     public interface IGiven
     {
-
         IGiven Given(Action action);
         IGiven Given(string description, Action action);
         IGiven Given(IExecutable executable);

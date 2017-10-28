@@ -5,12 +5,12 @@ namespace GivenWhenThen
 {
     public class TestStepAttribute : Attribute
     {
-        public string Description { get; set; }
-
         public TestStepAttribute(string description)
         {
             Description = description;
         }
+
+        public string Description { get; set; }
     }
 
     public class ScenarioAttribute : TestAttribute

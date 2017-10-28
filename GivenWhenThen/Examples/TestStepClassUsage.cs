@@ -5,7 +5,7 @@ namespace GivenWhenThen.Examples
     internal class TestStepClassUsage
     {
         /// <summary>
-        /// Console Output: n.a.
+        ///     Console Output: n.a.
         /// </summary>
         [Test]
         public void Sum1()
@@ -22,7 +22,7 @@ namespace GivenWhenThen.Examples
         }
 
         /// <summary>
-        /// Console Output: n.a.
+        ///     Console Output: n.a.
         /// </summary>
         [Test]
         public void Sum2()
@@ -92,8 +92,8 @@ namespace GivenWhenThen.Examples
 
     internal class SumResultVerification : IExecutable
     {
-        private readonly SumTestStep sumTestStep;
         private readonly int expectedValue;
+        private readonly SumTestStep sumTestStep;
 
         public SumResultVerification(SumTestStep sumTestStep, int expectedValue)
         {

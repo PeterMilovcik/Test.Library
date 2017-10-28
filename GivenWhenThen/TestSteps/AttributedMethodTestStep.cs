@@ -6,7 +6,7 @@ namespace GivenWhenThen.TestSteps
     internal class AttributedMethodTestStep : DescribedActionTestStep
     {
         public AttributedMethodTestStep(Action action)
-            :base(GetTestStepAttribute(action).Description, action)
+            : base(GetTestStepAttribute(action).Description, action)
         {
         }
 

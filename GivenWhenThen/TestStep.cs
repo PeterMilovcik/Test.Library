@@ -8,13 +8,9 @@ namespace GivenWhenThen
         public static IExecutable Create(Action action)
         {
             if (AttributedMethodTestStep.CanUse(action))
-            {
                 return new AttributedMethodTestStep(action);
-            }
             if (MethodTestStep.CanUse(action))
-            {
                 return new MethodTestStep(action);
-            }
             return new ActionTestStep(action);
         }
 

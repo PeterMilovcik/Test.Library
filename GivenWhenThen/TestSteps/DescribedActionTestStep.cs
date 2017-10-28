@@ -6,11 +6,11 @@ namespace GivenWhenThen.TestSteps
     internal class DescribedActionTestStep : ActionTestStep
     {
         public DescribedActionTestStep(string description, Action action)
-            :base(action)
+            : base(action)
         {
             Description = description ?? throw new ArgumentNullException(nameof(description));
         }
-        
+
         public string Description { get; }
 
         public override void Execute()

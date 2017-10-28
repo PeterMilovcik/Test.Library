@@ -8,7 +8,7 @@ namespace GivenWhenThen
         private readonly List<IExecutable> testSteps;
 
         public TestCase()
-            :this(string.Empty)
+            : this(string.Empty)
         {
         }
 
@@ -17,7 +17,7 @@ namespace GivenWhenThen
             Description = description;
             testSteps = new List<IExecutable>();
         }
-        
+
         public string Description { get; }
 
         public void Execute()

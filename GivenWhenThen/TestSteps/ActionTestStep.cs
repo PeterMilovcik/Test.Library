@@ -5,10 +5,12 @@ namespace GivenWhenThen.TestSteps
 {
     internal class ActionTestStep : IExecutable
     {
-        public Action Action { get; }
-
-        public ActionTestStep(Action action) => 
+        public ActionTestStep(Action action)
+        {
             Action = action ?? throw new ArgumentNullException(nameof(action));
+        }
+
+        public Action Action { get; }
 
         public virtual void Execute()
         {
