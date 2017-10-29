@@ -1,17 +1,17 @@
-using System;
+﻿using System;
 
-namespace GivenWhenThen.Stories
+namespace GivenWhenThen.Scenarios
 {
-    public class DescribedStory : BasicStory
+    internal class DescribedScenario : BasicScenario
     {
-        public DescribedStory(string description)
+        protected string Description { get; }
+
+        public DescribedScenario(string description)
         {
             if (string.IsNullOrEmpty(description))
                 throw new ArgumentException("Value cannot be null or empty.", nameof(description));
             Description = description;
         }
-
-        public string Description { get; }
 
         public override void Execute()
         {

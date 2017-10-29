@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using GivenWhenThen.Scenarios;
+using NUnit.Framework;
 
 namespace GivenWhenThen.Examples
 {
@@ -14,7 +15,7 @@ namespace GivenWhenThen.Examples
             var y = 0;
             var sum = 0;
 
-            new Scenario()
+            new BasicScenario()
                 .Given(() =>
                 {
                     x = 2;

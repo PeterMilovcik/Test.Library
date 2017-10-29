@@ -8,5 +8,7 @@ namespace GivenWhenThen.TestCases
         void Add(Action action);
         void Add(string description, Action action);
         void Add(IExecutable executable);
+        void Add(IEnumerable<IExecutable> executables);
+        void Add(params IExecutable[] executables);
     }
 }

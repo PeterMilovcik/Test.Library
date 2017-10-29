@@ -14,14 +14,10 @@ namespace GivenWhenThen
             return new ActionTestStep(action);
         }
 
-        public static IExecutable Create(string description, Action action)
-        {
-            return new DescribedActionTestStep(description, action);
-        }
+        public static IExecutable Create(string description, Action action) => 
+            new DescribedActionTestStep(description, action);
 
-        public static IExecutable Create(IExecutable executable)
-        {
-            return new ExecutableTestStep(executable);
-        }
+        public static IExecutable Create(IExecutable executable) => 
+            new ExecutableTestStep(executable);
     }
 }

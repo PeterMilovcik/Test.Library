@@ -1,8 +1,9 @@
+using GivenWhenThen.Scenarios;
 using NUnit.Framework;
 
 namespace GivenWhenThen.Examples
 {
-    internal class TestStepClassUsage
+    internal class TestStepClassExample
     {
         /// <summary>
         ///     Console Output: n.a.
@@ -14,7 +15,7 @@ namespace GivenWhenThen.Examples
             var sumOperation = new SumTestStep(xyNumbers);
             var sumResult = new SumResultVerification(sumOperation, 5);
 
-            new Scenario()
+            new BasicScenario()
                 .Given(xyNumbers)
                 .When(sumOperation)
                 .Then(sumResult)
@@ -31,7 +32,7 @@ namespace GivenWhenThen.Examples
             var sumOperation = TestSteps.Sum(xyNumbers);
             var sumResult = TestSteps.SumResult(sumOperation, 5);
 
-            new Scenario()
+            new BasicScenario()
                 .Given(xyNumbers)
                 .When(sumOperation)
                 .Then(sumResult)

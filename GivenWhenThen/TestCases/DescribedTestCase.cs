@@ -1,22 +1,21 @@
 using System;
-using GivenWhenThen.TestCases;
 
-namespace GivenWhenThen
+namespace GivenWhenThen.TestCases
 {
-    internal class DescribedTestCase : CommonTestCase, IDescriptive
+    internal class DescribedTestCase : BasicTestCase
     {
+        private readonly string description;
+
         public DescribedTestCase(string description)
         {
             if (string.IsNullOrEmpty(description))
                 throw new ArgumentException("Value cannot be null or empty.", nameof(description));
-            Description = description;
+            this.description = description;
         }
-        
-        public string Description { get; }
 
         public override void Execute()
         {
-            Console.WriteLine(Description);
+            Console.WriteLine(description);
             base.Execute();
         }
     }

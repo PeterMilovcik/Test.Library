@@ -1,8 +1,9 @@
 using System;
+using System.Collections.Generic;
 
 namespace GivenWhenThen.Scenarios
 {
-    public interface IScenario : IDescriptive, IExecutable
+    public interface IScenario : IExecutable, IEnumerable<IExecutable>
     {
         IScenario Given(Action action);
         IScenario Given(string description, Action action);

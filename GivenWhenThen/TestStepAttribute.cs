@@ -1,5 +1,4 @@
 ﻿using System;
-using NUnit.Framework;
 
 namespace GivenWhenThen
 {
@@ -7,17 +6,11 @@ namespace GivenWhenThen
     {
         public TestStepAttribute(string description)
         {
+            if (string.IsNullOrEmpty(description))
+                throw new ArgumentException("Value cannot be null or empty.", nameof(description));
             Description = description;
         }
 
-        public string Description { get; set; }
-    }
-
-    public class ScenarioAttribute : TestAttribute
-    {
-        public ScenarioAttribute(string description)
-        {
-            Description = description;
-        }
+        public string Description { get; }
     }
 }

@@ -3,7 +3,7 @@ using NUnit.Framework;
 
 namespace GivenWhenThen.TestSteps
 {
-    internal class DescribedActionTestStep : ActionTestStep, IDescriptive
+    internal class DescribedActionTestStep : ActionTestStep
     {
         public DescribedActionTestStep(string description, Action action)
             : base(action)
@@ -11,7 +11,7 @@ namespace GivenWhenThen.TestSteps
             Description = description ?? throw new ArgumentNullException(nameof(description));
         }
 
-        public string Description { get; }
+        protected string Description { get; }
 
         public override void Execute()
         {

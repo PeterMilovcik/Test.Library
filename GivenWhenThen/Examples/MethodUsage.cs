@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using GivenWhenThen.Scenarios;
+using NUnit.Framework;
 
 namespace GivenWhenThen.Examples
 {
@@ -17,7 +18,7 @@ namespace GivenWhenThen.Examples
         [Test]
         public void Sum()
         {
-            new Scenario()
+            new BasicScenario()
                 .Given(TwoNumbers2And3AreDeclared)
                 .When(SumOperationIsPerformed)
                 .Then(ResultIsEqualTo5)

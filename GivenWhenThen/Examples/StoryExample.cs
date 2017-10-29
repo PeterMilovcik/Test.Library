@@ -15,14 +15,14 @@ namespace GivenWhenThen.Examples
         [SetUp]
         public void SetUp()
         {
-            scenario1 = new Scenario("Scenario 1")
+            scenario1 = Scenario.WithName("Scenario 1")
                 .Given(() => x = 2)
                 .And(() => y = 3)
                 .When(() => z = x + y)
                 .And(() => z = z * 2)
                 .Then(() => Assert.That(z, Is.EqualTo(10)));
 
-            scenario2 = new Scenario("Scenario 2")
+            scenario2 = Scenario.WithName("Scenario 2")
                 .Given(() => x = 1)
                 .When(() => x += y)
                 .And(() => z = x * y)
@@ -32,7 +32,7 @@ namespace GivenWhenThen.Examples
         [Test]
         public void Calculation()
         {
-            Story.Create("Calculation")
+            Story.WithName("Calculation")
                 .Add(scenario1)
                 .Add(scenario2)
                 .Execute();
