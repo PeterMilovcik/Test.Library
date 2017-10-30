@@ -10,7 +10,7 @@ namespace TestFramework.TestSteps
 
         public static bool CanUse(Action action)
         {
-            return action.Method.Name.Contains("<") == false;
+            return action?.Method.Name.Contains("<") == false;
         }
     }
 }

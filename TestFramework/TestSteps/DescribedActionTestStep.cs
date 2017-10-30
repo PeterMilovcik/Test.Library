@@ -8,7 +8,9 @@ namespace TestFramework.TestSteps
         public DescribedActionTestStep(string description, Action action)
             : base(action)
         {
-            Description = description ?? throw new ArgumentNullException(nameof(description));
+            if (string.IsNullOrEmpty(description))
+                throw new ArgumentNullException(nameof(description));
+            Description = description;
         }
 
         protected string Description { get; }
