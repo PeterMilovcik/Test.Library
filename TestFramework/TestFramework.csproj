@@ -43,6 +43,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Examples\AttributedMethodExample.cs" />
+    <Compile Include="Examples\DelegateOnlyExample.cs" />
+    <Compile Include="Examples\DescribedDelegateExample.cs" />
+    <Compile Include="Examples\MethodExample.cs" />
+    <Compile Include="Examples\TestStepClassExample.cs" />
     <Compile Include="Scenarios\DescribedScenario.cs" />
     <Compile Include="Scenario.cs" />
     <Compile Include="Scenarios\IScenario.cs" />
@@ -54,11 +59,6 @@
     <Compile Include="Story.cs" />
     <Compile Include="TestCases\BasicTestCase.cs" />
     <Compile Include="TestCases\DescribedTestCase.cs" />
-    <Compile Include="Examples\AttributedMethodUsage.cs" />
-    <Compile Include="Examples\DelegateOnlyUsage.cs" />
-    <Compile Include="Examples\DescribedDelegateUsage.cs" />
-    <Compile Include="Examples\MethodUsage.cs" />
-    <Compile Include="Examples\TestStepClassUsage.cs" />
     <Compile Include="TestCases\ITestCase.cs" />
     <Compile Include="TestSteps\ExecutableTestStep.cs" />
     <Compile Include="IExecutable.cs" />
