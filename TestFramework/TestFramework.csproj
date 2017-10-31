@@ -47,7 +47,6 @@
     <Compile Include="Examples\DelegateOnlyExample.cs" />
     <Compile Include="Examples\DescribedDelegateExample.cs" />
     <Compile Include="Examples\MethodExample.cs" />
-    <Compile Include="Examples\TestStepClassExample.cs" />
     <Compile Include="Scenarios\DescribedScenario.cs" />
     <Compile Include="Scenario.cs" />
     <Compile Include="Scenarios\IScenario.cs" />

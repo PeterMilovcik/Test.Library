@@ -1,6 +1,6 @@
 ﻿using NUnit.Framework;
 
-namespace GivenWhenThen.Examples
+namespace TestFramework.Examples
 {
     internal class AttributedMethodExample
     {
@@ -17,7 +17,7 @@ namespace GivenWhenThen.Examples
         [Test]
         public void Sum()
         {
-            Scenario
+            Scenario.Create()
                 .Given(TwoNumbers2And3AreDeclared)
                 .When(SumOperationIsPerformed)
                 .Then(ResultIsEqualTo5)
