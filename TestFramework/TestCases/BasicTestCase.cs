@@ -11,23 +11,35 @@ namespace TestFramework.TestCases
         public BasicTestCase() => 
             Executables = new List<IExecutable>();
 
-        public void Add(Action action) => 
-            Executables.Add(TestStep.Create(action));
+        public ITestCase Add(Action action) => 
+            AddExecutable(TestStep.Create(action));
 
-        public void Add(string description, Action action) => 
-            Executables.Add(TestStep.Create(description, action));
+        public ITestCase Add(string description, Action action) =>
+            AddExecutable(TestStep.Create(description, action));
 
-        public void Add(IExecutable executable) => 
-            Executables.Add(executable);
+        public ITestCase Add(IExecutable executable) =>
+            AddExecutable(executable);
 
-        public void Add(IEnumerable<IExecutable> executables) => 
-            Executables.AddRange(executables);
+        public ITestCase Add(IEnumerable<IExecutable> executables) =>
+            AddExecutables(executables);
 
-        public void Add(params IExecutable[] executables) => 
-            Executables.AddRange(executables);
+        public ITestCase Add(params IExecutable[] executables) =>
+            AddExecutables(executables);
 
         public virtual void Execute() => 
             Executables.ForEach(testStep => testStep.Execute());
+
+        private ITestCase AddExecutable(IExecutable executable)
+        {
+            Executables.Add(executable);
+            return this;
+        }
+
+        private ITestCase AddExecutables(IEnumerable<IExecutable> executables)
+        {
+            Executables.AddRange(executables);
+            return this;
+        }
 
         public IEnumerator<IExecutable> GetEnumerator() => 
             Executables.GetEnumerator();

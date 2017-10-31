@@ -1,5 +1,6 @@
 ﻿using NUnit.Framework;
 using TestFramework.TestCases;
+using TestFramework.UnitTests.TestSteps;
 
 namespace TestFramework.UnitTests
 {
@@ -8,14 +9,11 @@ namespace TestFramework.UnitTests
         [Test]
         public void Create_NotNull()
         {
-            ITestCase testCase;
-            Scenario.Create()
-                .Given("Test case is not yet created.", 
-                () => testCase = null)
-                .When("TestCase.Create() method is called.", 
-                () => testCase = TestCase.Create())
-                .Then("Test case is created.", 
-                () => Assert.That(TestCase.Create(), Is.Not.Null))
+            ITestCase testCase = null;
+
+            TestCase.Create()
+                .Add(() => new TestStep().TestCase().Create(out testCase))
+                .Add(() => new TestStep().Assert().IsNotNull(testCase))
                 .Execute();
         }
     }
