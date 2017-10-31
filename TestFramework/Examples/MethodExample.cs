@@ -1,6 +1,6 @@
 ﻿using NUnit.Framework;
 
-namespace GivenWhenThen.Examples
+namespace TestFramework.Examples
 {
     internal class MethodExample
     {
@@ -15,14 +15,11 @@ namespace GivenWhenThen.Examples
         ///  Then: ResultIsEqualTo5 -> Passed
         /// </summary>
         [Test]
-        public void Sum()
-        {
-            Scenario
-                .Given(TwoNumbers2And3AreDeclared)
-                .When(SumOperationIsPerformed)
-                .Then(ResultIsEqualTo5)
-                .Execute();
-        }
+        public void Sum() => Scenario.Create()
+            .Given(TwoNumbers2And3AreDeclared)
+            .When(SumOperationIsPerformed)
+            .Then(ResultIsEqualTo5)
+            .Execute();
 
         private void TwoNumbers2And3AreDeclared()
         {
@@ -30,14 +27,8 @@ namespace GivenWhenThen.Examples
             y = 3;
         }
 
-        private void SumOperationIsPerformed()
-        {
-            sum = x + y;
-        }
+        private void SumOperationIsPerformed() => sum = x + y;
 
-        private void ResultIsEqualTo5()
-        {
-            Assert.That(sum, Is.EqualTo(5));
-        }
+        private void ResultIsEqualTo5() => Assert.That(sum, Is.EqualTo(5));
     }
 }

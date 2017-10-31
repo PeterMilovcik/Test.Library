@@ -1,6 +1,6 @@
 ﻿using NUnit.Framework;
 
-namespace GivenWhenThen.Examples
+namespace TestFramework.Examples
 {
     internal class DelegateOnlyExample
     {
@@ -14,7 +14,7 @@ namespace GivenWhenThen.Examples
             int y = 0;
             int sum = 0;
 
-            Scenario
+            Scenario.Create()
                 .Given(() => { x = 2; y = 3; })
                 .When(() => sum = x + y)
                 .Then(() => Assert.That(sum, Is.EqualTo(5)))

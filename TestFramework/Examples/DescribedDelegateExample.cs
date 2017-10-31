@@ -1,6 +1,6 @@
 using NUnit.Framework;
 
-namespace GivenWhenThen.Examples
+namespace TestFramework.Examples
 {
     internal class DescribedDelegateExample
     {
@@ -17,7 +17,7 @@ namespace GivenWhenThen.Examples
             int y = 0;
             int sum = 0;
 
-            Scenario
+            Scenario.Create()
                 .Given("Two numbers x=2 and y=3.", () =>
                 {
                     x = 2;
