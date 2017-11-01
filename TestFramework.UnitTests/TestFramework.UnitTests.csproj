@@ -40,6 +40,7 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ScenarioTests.cs" />
     <Compile Include="StoryTests.cs" />
     <Compile Include="TestCaseTests.cs" />
     <Compile Include="TestStepAttributeTests.cs" />
