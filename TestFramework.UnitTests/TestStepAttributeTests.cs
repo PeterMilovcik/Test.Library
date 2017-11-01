@@ -15,10 +15,8 @@ namespace TestFramework.UnitTests
             CreateSut();
         }
 
-        private void CreateSut()
-        {
+        private void CreateSut() => 
             sut = new TestStepAttribute(description);
-        }
 
         [Test]
         public void Description_IsRequired()
@@ -28,9 +26,7 @@ namespace TestFramework.UnitTests
         }
 
         [Test]
-        public void Description_IsSetFromConstructor()
-        {
+        public void Description_IsSetFromConstructor() => 
             Assert.That(sut.Description, Is.EqualTo(description));
-        }
     }
 }
