@@ -10,9 +10,9 @@
     <projectUrl>https://github.com/PeterMilovcik/Test.Library</projectUrl>
     <iconUrl>https://github.com/PeterMilovcik/Test.Library/blob/master/Test.Library/test.library.ico</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>$description$</description>
-    <releaseNotes>Summary of changes made in this release of the package.</releaseNotes>
+    <description>Simple, yet powerful .NET framework test library with support for BDD.</description>
+    <releaseNotes>Added descriptive steps, changed classes to interfaces.</releaseNotes>
     <copyright>Copyright 2018</copyright>
-    <tags>Tag1 Tag2</tags>
+    <tags>BDD TDD testing</tags>
   </metadata>
 </package>
