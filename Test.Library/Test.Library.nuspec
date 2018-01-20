@@ -6,8 +6,8 @@
     <title>CodeDiscipline.Test.Library</title>
     <authors>Peter Milovcik</authors>
     <owners>Peter Milovcik</owners>
-    <licenseUrl>http://LICENSE_URL_HERE_OR_DELETE_THIS_LINE</licenseUrl>
-    <projectUrl>http://PROJECT_URL_HERE_OR_DELETE_THIS_LINE</projectUrl>
+    <licenseUrl>https://github.com/PeterMilovcik/Test.Library/blob/master/Test.Library/LICENSE.md</licenseUrl>
+    <projectUrl>https://github.com/PeterMilovcik/Test.Library</projectUrl>
     <iconUrl>http://ICON_URL_HERE_OR_DELETE_THIS_LINE</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>$description$</description>

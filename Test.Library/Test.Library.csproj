@@ -48,5 +48,8 @@
   <ItemGroup>
     <None Include="LICENSE.md" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="test.library.ico" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
