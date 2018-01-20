@@ -8,7 +8,7 @@
     <owners>Peter Milovcik</owners>
     <licenseUrl>https://github.com/PeterMilovcik/Test.Library/blob/master/Test.Library/LICENSE.md</licenseUrl>
     <projectUrl>https://github.com/PeterMilovcik/Test.Library</projectUrl>
-    <iconUrl>http://ICON_URL_HERE_OR_DELETE_THIS_LINE</iconUrl>
+    <iconUrl>https://github.com/PeterMilovcik/Test.Library/blob/master/Test.Library/test.library.ico</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>$description$</description>
     <releaseNotes>Summary of changes made in this release of the package.</releaseNotes>
