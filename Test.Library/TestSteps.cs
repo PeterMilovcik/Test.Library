@@ -1,6 +1,6 @@
 ﻿namespace Test.Library
 {
-    public interface ITestSteps
+    public class TestSteps
     {
     }
 }

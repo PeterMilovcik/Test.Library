@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Test.Library</RootNamespace>
     <AssemblyName>Test.Library</AssemblyName>
-    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
@@ -37,10 +37,8 @@
   <ItemGroup>
     <Compile Include="GWT.cs" />
     <Compile Include="IAnd.cs" />
-    <Compile Include="ICleanUp.cs" />
     <Compile Include="IGiven.cs" />
-    <Compile Include="ISetup.cs" />
-    <Compile Include="ITestSteps.cs" />
+    <Compile Include="TestSteps.cs" />
     <Compile Include="IThen.cs" />
     <Compile Include="IWhen.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

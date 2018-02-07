@@ -2,7 +2,7 @@
 
 namespace Test.Library
 {
-    public abstract class GWT : IGiven, IWhen, IThen, ISetup, ICleanUp, ITestSteps
+    public abstract class GWT : IGiven, IWhen, IThen
     {
         public virtual IGiven Given(Action action)
         {
@@ -52,11 +52,9 @@ namespace Test.Library
             return this;
         }
 
-        public virtual ISetup Setup => this;
+        public virtual TestSteps TestSteps => new TestSteps();
 
-        public virtual ICleanUp CleanUp => this;
-
-        public virtual ITestSteps TestSteps => this;
+        public virtual TestSteps _ => new TestSteps();
 
         protected virtual void Execute(string description, Action action)
         {
