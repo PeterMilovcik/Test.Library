@@ -2,51 +2,51 @@
 
 namespace Test.Library
 {
-    public abstract class GWT : IGiven, IWhen, IThen
+    public abstract class GWT : IAnd
     {
-        public virtual IGiven Given(Action action)
+        public virtual IAnd Given(Action action)
         {
             Execute(action);
             return this;
         }
 
-        public virtual IGiven Given(string description, Action action)
+        public IAnd Given(string description, Action action)
         {
             Execute($"Given: {description}", action);
             return this;
         }
 
-        public virtual IWhen When(string description, Action action)
+        public IAnd When(string description, Action action)
         {
             Execute($"When : {description}", action);
             return this;
         }
 
-        public virtual IWhen When(Action action)
+        public IAnd When(Action action)
         {
             Execute(action);
             return this;
         }
 
-        public virtual IThen Then(string description, Action action)
+        public IAnd Then(string description, Action action)
         {
             Execute($"Then : {description}", action);
             return this;
         }
 
-        public virtual IThen Then(Action action)
+        public IAnd Then(Action action)
         {
             Execute(action);
             return this;
         }
 
-        public virtual IAnd And(Action action)
+        IAnd IAnd.And(Action action)
         {
             Execute(action);
             return this;
         }
 
-        public virtual IAnd And(string description, Action action)
+        IAnd IAnd.And(string description, Action action)
         {
             Execute($"  And: {description}", action);
             return this;
@@ -91,5 +91,12 @@ namespace Test.Library
         protected virtual void AfterStep()
         {
         }
+    }
+
+    public interface IAnd
+    {
+        IAnd And(Action action);
+
+        IAnd And(string description, Action action);
     }
 }

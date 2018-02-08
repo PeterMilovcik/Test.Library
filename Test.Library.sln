@@ -1,11 +1,17 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27130.2024
+VisualStudioVersion = 15.0.27130.2027
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test.Library", "Test.Library\Test.Library.csproj", "{29E79EE8-A4CB-45A3-9249-049547991E4E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test.Library.Samples", "Test.Library.Samples\Test.Library.Samples.csproj", "{CBB59202-A89B-41C2-8540-4663AC7E08A1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{024F2E1F-C520-4ED5-9DEA-1C37A1B7671C}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+		Test.Library\Test.Library.nuspec = Test.Library\Test.Library.nuspec
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
