@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Test.Library
+﻿namespace Test.Library
 {
     public interface ITestStep
     {

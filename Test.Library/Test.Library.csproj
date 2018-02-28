@@ -40,6 +40,7 @@
   <ItemGroup>
     <Compile Include="GWT.cs" />
     <Compile Include="IAnd.cs" />
+    <Compile Include="IGivenWhenThen.cs" />
     <Compile Include="ITestStepRunner.cs" />
     <Compile Include="ITestStep.cs" />
     <Compile Include="TestStepRunners\ConsoleTestStepRunner.cs" />
