@@ -9,7 +9,7 @@ namespace Test.Library.TestStepRunners
             Console.Write(testStep.Description);
             try
             {
-                testStep.Execute(this);
+                testStep.Action();
                 Console.WriteLine(" -> Passed");
             }
             catch (NotImplementedException)
