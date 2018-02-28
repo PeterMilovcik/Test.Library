@@ -1,13 +1,12 @@
 ﻿using System.Collections.ObjectModel;
 using FluentAssertions;
-using NUnit.Framework;
 
 namespace Test.Library.Samples
 {
-    [TestFixture]
+    [UseCase]
     public class MainViewModelTests : GWT
     {
-        [Test]
+        [Scenario]
         public void Load_Items_NotNullAndNotEmpty()
         {
             MainViewModel mainViewModel = null;
@@ -17,7 +16,7 @@ namespace Test.Library.Samples
                 .And(() => mainViewModel.Items.Should().NotBeEmpty());
         }
 
-        [Test]
+        [Scenario]
         public void Descriptive_Load_Items_NotNullAndNotEmpty()
         {
             MainViewModel mainViewModel = null;
