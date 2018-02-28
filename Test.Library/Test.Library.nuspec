@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>CodeDiscipline.Test.Library</id>
-    <version>1.0.2.2</version>
+    <version>1.0.2.0</version>
     <title>CodeDiscipline.Test.Library</title>
     <authors>Peter Milovcik</authors>
     <owners>Peter Milovcik</owners>
@@ -11,7 +11,7 @@
     <iconUrl>https://github.com/PeterMilovcik/Test.Library/blob/master/Test.Library/test.library.ico</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Simple, yet powerful .NET framework test library with support for BDD.</description>
-    <releaseNotes>Overloaded Then with boolean verification.</releaseNotes>
+    <releaseNotes>Changed to .NET 4.5.</releaseNotes>
     <copyright>Copyright 2018</copyright>
     <tags>BDD TDD testing</tags>
   </metadata>

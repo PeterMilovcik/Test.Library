@@ -1,5 +1,4 @@
 ﻿using System;
-using NUnit.Framework;
 
 namespace Test.Library
 {
@@ -41,33 +40,15 @@ namespace Test.Library
             return this;
         }
 
-        public IAnd Then(bool expectation)
-        {
-            Execute(() => Assert.That(expectation));
-            return this;
-        }
-
         IAnd IAnd.And(Action action)
         {
             Execute(action);
             return this;
         }
 
-        IAnd IAnd.And(bool expectation)
-        {
-            Execute(() => Assert.That(expectation));
-            return this;
-        }
-
         IAnd IAnd.And(string description, Action action)
         {
             Execute($"  And: {description}", action);
-            return this;
-        }
-
-        IAnd IAnd.And(string description, bool expectation)
-        {
-            Execute($"  And: {description}", () => Assert.That(expectation));
             return this;
         }
 
@@ -116,10 +97,6 @@ namespace Test.Library
     {
         IAnd And(Action action);
 
-        IAnd And(bool expectation);
-
         IAnd And(string description, Action action);
-
-        IAnd And(string description, bool expectation);
     }
 }
