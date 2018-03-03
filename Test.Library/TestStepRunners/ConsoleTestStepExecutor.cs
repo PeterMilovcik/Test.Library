@@ -1,15 +1,16 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Test.Library.TestStepRunners
 {
-    public class ConsoleTestStepRunner : ITestStepRunner
+    public class ConsoleTestStepExecutor : ITestStepExecutor
     {
-        public void Run(ITestStep testStep)
+        public void Execute(IExecutable testStep)
         {
             Console.Write(testStep.Description);
             try
             {
-                testStep.Action();
+                testStep.Execute();
                 Console.WriteLine(" -> Passed");
             }
             catch (NotImplementedException)

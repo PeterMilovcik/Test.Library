@@ -5,84 +5,84 @@ namespace Test.Library
 {
     public abstract class GWT : IGivenWhenThen, IAnd
     {
-        protected GWT() => Runner = new ConsoleTestStepRunner();
+        protected GWT() => Executor = new ConsoleTestStepExecutor();
 
         public virtual IAnd Given(Action action)
         {
-            Runner.Run(new SimpleTestStep(action.Method.Name, action));
+            Executor.Execute(new SimpleTestStep(action.Method.Name, action));
             return this;
         }
 
         public IAnd Given(string description, Action action)
         {
-            Runner.Run(new SimpleTestStep(description, action));
+            Executor.Execute(new SimpleTestStep(description, action));
             return this;
         }
 
-        public IAnd Given(ITestStep testStep)
+        public IAnd Given(IExecutable testStep)
         {
-            Runner.Run(testStep);
+            Executor.Execute(testStep);
             return this;
         }
 
         public IAnd When(string description, Action action)
         {
-            Runner.Run(new SimpleTestStep(description, action));
+            Executor.Execute(new SimpleTestStep(description, action));
             return this;
         }
 
-        public IAnd When(ITestStep testStep)
+        public IAnd When(IExecutable testStep)
         {
-            Runner.Run(testStep);
+            Executor.Execute(testStep);
             return this;
         }
 
         public IAnd When(Action action)
         {
-            Runner.Run(new SimpleTestStep(action.Method.Name, action));
+            Executor.Execute(new SimpleTestStep(action.Method.Name, action));
             return this;
         }
 
         public IAnd Then(string description, Action action)
         {
-            Runner.Run(new SimpleTestStep(description, action));
+            Executor.Execute(new SimpleTestStep(description, action));
             return this;
         }
 
-        public IAnd Then(ITestStep testStep)
+        public IAnd Then(IExecutable testStep)
         {
-            Runner.Run(testStep);
+            Executor.Execute(testStep);
             return this;
-        }
+        }        
 
         public IAnd Then(Action action)
         {
-            Runner.Run(new SimpleTestStep(action.Method.Name, action));
+            Executor.Execute(new SimpleTestStep(action.Method.Name, action));
             return this;
         }
 
         IAnd IAnd.And(Action action)
         {
-            Runner.Run(new SimpleTestStep(action.Method.Name, action));
+            Executor.Execute(new SimpleTestStep(action.Method.Name, action));
             return this;
         }
 
         IAnd IAnd.And(string description, Action action)
         {
-            Runner.Run(new SimpleTestStep(description, action));
+            Executor.Execute(new SimpleTestStep(description, action));
             return this;
         }
 
-        public IAnd And(ITestStep testStep)
+        public IAnd And(IExecutable testStep)
         {
-            Runner.Run(testStep);
+            Executor.Execute(testStep);
             return this;
         }
 
-        protected ITestStepRunner Runner { get; set; }
+        protected virtual ITestStepExecutor Executor { get; set; }
 
-        public virtual TestSteps TestSteps => new TestSteps();
+        protected virtual TestSteps TestSteps => new TestSteps();
 
-        public virtual TestSteps _ => new TestSteps();
+        protected virtual TestSteps _ => new TestSteps();
     }
 }
