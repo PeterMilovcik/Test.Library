@@ -1,6 +1,6 @@
 ﻿using System;
-using Test.Library.TestStepExecutors;
-using Test.Library.TestStepExecutors.Console;
+using Test.Library.Executors.Console;
+using Test.Library.TestSteps;
 
 namespace Test.Library
 {
@@ -20,7 +20,7 @@ namespace Test.Library
             return this;
         }
 
-        public IAnd Given(IExecutable testStep)
+        public IAnd Given(ITestStep testStep)
         {
             Executor.Execute(testStep);
             return this;
@@ -32,7 +32,7 @@ namespace Test.Library
             return this;
         }
 
-        public IAnd When(IExecutable testStep)
+        public IAnd When(ITestStep testStep)
         {
             Executor.Execute(testStep);
             return this;
@@ -50,7 +50,7 @@ namespace Test.Library
             return this;
         }
 
-        public IAnd Then(IExecutable testStep)
+        public IAnd Then(ITestStep testStep)
         {
             Executor.Execute(testStep);
             return this;
@@ -74,16 +74,12 @@ namespace Test.Library
             return this;
         }
 
-        public IAnd And(IExecutable testStep)
+        public IAnd And(ITestStep testStep)
         {
             Executor.Execute(testStep);
             return this;
         }
 
-        protected virtual ITestStepExecutor Executor { get; set; }
-
-        protected virtual TestSteps TestSteps => new TestSteps();
-
-        protected virtual TestSteps _ => new TestSteps();
+        protected ITestStepExecutor Executor { get; set; }
     }
 }

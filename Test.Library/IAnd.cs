@@ -6,6 +6,6 @@ namespace Test.Library
     {
         IAnd And(Action action);
         IAnd And(string description, Action action);
-        IAnd And(IExecutable testStep);
+        IAnd And(ITestStep testStep);
     }
 }

@@ -2,6 +2,6 @@
 {
     public interface ITestStepExecutor
     {
-        void Execute(IExecutable testStep);
+        void Execute(ITestStep testStep);
     }
 }

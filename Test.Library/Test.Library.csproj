@@ -38,16 +38,17 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CompositeTestStep.cs" />
+    <Compile Include="TestSteps\CompositeTestStep.cs" />
     <Compile Include="GWT.cs" />
+    <Compile Include="IActionable.cs" />
     <Compile Include="IAnd.cs" />
+    <Compile Include="IDescriptive.cs" />
     <Compile Include="IGWT.cs" />
     <Compile Include="ITestStepExecutor.cs" />
-    <Compile Include="IExecutable.cs" />
-    <Compile Include="SimpleTestStep.cs" />
-    <Compile Include="TestStepExecutors\Console\ConsoleTestStepExecutor.cs" />
-    <Compile Include="TestStepExecutors\Extensions\ExecutableExtensions.cs" />
-    <Compile Include="TestSteps.cs" />
+    <Compile Include="ITestStep.cs" />
+    <Compile Include="TestSteps\SimpleTestStep.cs" />
+    <Compile Include="Executors\Console\ConsoleTestStepExecutor.cs" />
+    <Compile Include="Extensions\TestStepExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

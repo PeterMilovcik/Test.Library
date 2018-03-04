@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace Test.Library
+namespace Test.Library.TestSteps
 {
-    public sealed class SimpleTestStep : IDescriptive, IActionable, IExecutable
+    public sealed class SimpleTestStep : IDescriptive, IActionable, ITestStep
     {
         public SimpleTestStep(string description, Action action)
         {
