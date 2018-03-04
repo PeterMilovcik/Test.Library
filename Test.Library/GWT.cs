@@ -1,85 +1,62 @@
 ﻿using System;
 using Test.Library.Executors.Console;
-using Test.Library.TestSteps;
 
 namespace Test.Library
 {
     public abstract class GWT : IGivenWhenThen, IAnd
     {
-        protected GWT() => Executor = new ConsoleTestStepExecutor();
+        protected GWT() => TestStepExecutor = new ConsoleTestStepExecutor();
 
-        public virtual IAnd Given(Action action)
+        protected ITestStepExecutor TestStepExecutor { get; private set; }
+
+        protected void SetTestStepExecutor(ITestStepExecutor executor) =>
+            TestStepExecutor = executor ?? throw new ArgumentNullException(nameof(executor));
+
+        protected ITestStepFactory TestStepFactory { get; private set; }
+
+        protected void SetTestStepFactory(ITestStepFactory factory) =>
+            TestStepFactory = factory ?? throw new ArgumentNullException(nameof(factory));
+
+        IAnd IGivenWhenThen.Given(Action action) => 
+            Execute(TestStepFactory.Create(action));
+
+        IAnd IGivenWhenThen.Given(string description, Action action) => 
+            Execute(TestStepFactory.Create(description, action));
+
+        IAnd IGivenWhenThen.Given(ITestStep testStep) => 
+            Execute(testStep);
+
+        IAnd IGivenWhenThen.When(string description, Action action) => 
+            Execute(TestStepFactory.Create(description, action));
+
+        IAnd IGivenWhenThen.When(ITestStep testStep) => 
+            Execute(testStep);
+
+        IAnd IGivenWhenThen.When(Action action) => 
+            Execute(TestStepFactory.Create(action));
+
+        IAnd IGivenWhenThen.Then(string description, Action action) => 
+            Execute(TestStepFactory.Create(description, action));
+
+        IAnd IGivenWhenThen.Then(ITestStep testStep) => 
+            Execute(testStep);
+
+        IAnd IGivenWhenThen.Then(Action action) => 
+            Execute(TestStepFactory.Create(action));
+
+        IAnd IAnd.And(Action action) => 
+            Execute(TestStepFactory.Create(action));
+
+        IAnd IAnd.And(string description, Action action) => 
+            Execute(TestStepFactory.Create(description, action));
+
+        IAnd IAnd.And(ITestStep testStep) => 
+            Execute(testStep);
+
+        private IAnd Execute(ITestStep testStep)
         {
-            Executor.Execute(new SimpleTestStep(action));
+            TestStepExecutor.Execute(testStep);
             return this;
         }
-
-        public IAnd Given(string description, Action action)
-        {
-            Executor.Execute(new SimpleTestStep(description, action));
-            return this;
-        }
-
-        public IAnd Given(ITestStep testStep)
-        {
-            Executor.Execute(testStep);
-            return this;
-        }
-
-        public IAnd When(string description, Action action)
-        {
-            Executor.Execute(new SimpleTestStep(description, action));
-            return this;
-        }
-
-        public IAnd When(ITestStep testStep)
-        {
-            Executor.Execute(testStep);
-            return this;
-        }
-
-        public IAnd When(Action action)
-        {
-            Executor.Execute(new SimpleTestStep(action.Method.Name, action));
-            return this;
-        }
-
-        public IAnd Then(string description, Action action)
-        {
-            Executor.Execute(new SimpleTestStep(description, action));
-            return this;
-        }
-
-        public IAnd Then(ITestStep testStep)
-        {
-            Executor.Execute(testStep);
-            return this;
-        }        
-
-        public IAnd Then(Action action)
-        {
-            Executor.Execute(new SimpleTestStep(action.Method.Name, action));
-            return this;
-        }
-
-        IAnd IAnd.And(Action action)
-        {
-            Executor.Execute(new SimpleTestStep(action.Method.Name, action));
-            return this;
-        }
-
-        IAnd IAnd.And(string description, Action action)
-        {
-            Executor.Execute(new SimpleTestStep(description, action));
-            return this;
-        }
-
-        public IAnd And(ITestStep testStep)
-        {
-            Executor.Execute(testStep);
-            return this;
-        }
-
-        protected ITestStepExecutor Executor { get; set; }
     }
 }

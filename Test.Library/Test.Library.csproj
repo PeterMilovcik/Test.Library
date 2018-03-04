@@ -41,6 +41,8 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Factories\DefaultTestStepFactory.cs" />
+    <Compile Include="ITestStepFactory.cs" />
     <Compile Include="TestSteps\CompositeTestStep.cs" />
     <Compile Include="GWT.cs" />
     <Compile Include="IActionable.cs" />
