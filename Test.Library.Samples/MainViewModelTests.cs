@@ -4,17 +4,31 @@ using NUnit.Framework;
 
 namespace Test.Library.Samples
 {
+    public class MainViewModel
+    {
+        public void Load()
+        {
+            Items = new ObservableCollection<string> {"item1"};
+        }
+
+        public ObservableCollection<string> Items { get; private set; }
+    }
+
+    internal class MainViewModelSut
+    {
+        public MainViewModel MainViewModel { get; set; }
+    }
+
     [TestFixture]
     public class MainViewModelTests : GWT
     {
         [Test]
         public void Load_Items_NotNullAndNotEmpty()
         {
-            MainViewModel mainViewModel = null;
-            Given(() => mainViewModel = new MainViewModel());
-            When(() => mainViewModel.Load());
-            Then(() => mainViewModel.Items.Should().NotBeNull())
-                .And(() => mainViewModel.Items.Should().NotBeEmpty());
+            var sut = new MainViewModelSut();
+            Given(sut.CreateMainViewModel);
+            When(sut.LoadMainViewModel);
+            Then(sut.ItemsAreLoaded);
         }
 
         [Test]
@@ -32,13 +46,18 @@ namespace Test.Library.Samples
         }
     }
 
-    public class MainViewModel
+    internal static class MainViewModelSutTestSteps
     {
-        public void Load()
-        {
-            Items = new ObservableCollection<string> {"item1"};
-        }
+        [Description("Create MainViewModel.")]
+        public static void CreateMainViewModel(this MainViewModelSut sut) => 
+            sut.MainViewModel = new MainViewModel();
 
-        public ObservableCollection<string> Items { get; private set; }
+        [Description("Load MainViewModel.")]
+        public static void LoadMainViewModel(this MainViewModelSut sut) =>
+            sut.MainViewModel.Load();
+
+        [Description("MainViewModel.Items are loaded.")]
+        public static void ItemsAreLoaded(this MainViewModelSut sut) =>
+            Assert.That(sut.MainViewModel.Items, Is.Not.Empty);
     }
 }

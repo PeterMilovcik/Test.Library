@@ -10,7 +10,7 @@ namespace Test.Library
 
         public virtual IAnd Given(Action action)
         {
-            Executor.Execute(new SimpleTestStep(action.Method.Name, action));
+            Executor.Execute(new SimpleTestStep(action));
             return this;
         }
 
