@@ -7,7 +7,9 @@ namespace Test.Library.Executors.Console
     {
         public void Execute(ITestStep testStep)
         {
-            testStep.AsDescriptive(t => System.Console.Write((string) t.Description));
+            if (testStep == null) throw new ArgumentNullException(nameof(testStep));
+
+            testStep.AsDescriptive(t => System.Console.Write(t.Description));
             try
             {
                 testStep.AsActionable(t => t.Action());
