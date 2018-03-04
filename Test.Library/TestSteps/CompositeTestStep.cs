@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -10,7 +11,8 @@ namespace Test.Library.TestSteps
 
         public CompositeTestStep(string description, IEnumerable<ITestStep> sequence)
         {
-            Description = description;
+            if (sequence == null) throw new ArgumentNullException(nameof(sequence));
+            Description = description ?? throw new ArgumentNullException(nameof(description));
             Sequence = sequence.ToList();
         }
 
