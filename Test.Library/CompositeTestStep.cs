@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace Test.Library
 {
-    public class CompositeTestStep : IExecutable, IDescriptive, IEnumerable<ITestStep>
+    public class CompositeTestStep : IExecutable, IDescriptive, IEnumerable<IExecutable>
     {
         private readonly List<IExecutable> list;
 

@@ -45,7 +45,8 @@
     <Compile Include="ITestStepExecutor.cs" />
     <Compile Include="IExecutable.cs" />
     <Compile Include="SimpleTestStep.cs" />
-    <Compile Include="TestStepRunners\ConsoleTestStepExecutor.cs" />
+    <Compile Include="TestStepExecutors\Console\ConsoleTestStepExecutor.cs" />
+    <Compile Include="TestStepExecutors\Extensions\ExecutableExtensions.cs" />
     <Compile Include="TestSteps.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

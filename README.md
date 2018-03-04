@@ -8,3 +8,5 @@
 1. simplicity
 2. readability
 3. extensibility
+
+Status: Early development
