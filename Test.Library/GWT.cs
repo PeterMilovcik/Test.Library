@@ -17,40 +17,40 @@ namespace Test.Library
         protected void SetTestStepFactory(ITestStepFactory factory) =>
             TestStepFactory = factory ?? throw new ArgumentNullException(nameof(factory));
 
-        IAnd IGivenWhenThen.Given(Action action) => 
+        public IAnd Given(Action action) => 
             Execute(TestStepFactory.Create(action));
 
-        IAnd IGivenWhenThen.Given(string description, Action action) => 
+        public IAnd Given(string description, Action action) => 
             Execute(TestStepFactory.Create(description, action));
 
-        IAnd IGivenWhenThen.Given(ITestStep testStep) => 
+        public IAnd Given(ITestStep testStep) => 
             Execute(testStep);
 
-        IAnd IGivenWhenThen.When(string description, Action action) => 
+        public IAnd When(string description, Action action) => 
             Execute(TestStepFactory.Create(description, action));
 
-        IAnd IGivenWhenThen.When(ITestStep testStep) => 
+        public IAnd When(ITestStep testStep) => 
             Execute(testStep);
 
-        IAnd IGivenWhenThen.When(Action action) => 
+        public IAnd When(Action action) => 
             Execute(TestStepFactory.Create(action));
 
-        IAnd IGivenWhenThen.Then(string description, Action action) => 
+        public IAnd Then(string description, Action action) => 
             Execute(TestStepFactory.Create(description, action));
 
-        IAnd IGivenWhenThen.Then(ITestStep testStep) => 
+        public IAnd Then(ITestStep testStep) => 
             Execute(testStep);
 
-        IAnd IGivenWhenThen.Then(Action action) => 
+        public IAnd Then(Action action) => 
             Execute(TestStepFactory.Create(action));
 
-        IAnd IAnd.And(Action action) => 
+        public IAnd And(Action action) => 
             Execute(TestStepFactory.Create(action));
 
-        IAnd IAnd.And(string description, Action action) => 
+        public IAnd And(string description, Action action) => 
             Execute(TestStepFactory.Create(description, action));
 
-        IAnd IAnd.And(ITestStep testStep) => 
+        public IAnd And(ITestStep testStep) => 
             Execute(testStep);
 
         private IAnd Execute(ITestStep testStep)
